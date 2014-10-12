@@ -1,0 +1,18 @@
+{
+  "name": "aipf",
+  "version": "0.0.1",
+  "homepage": "https://github.com/levjj/aipf",
+  "authors": [
+    "Christopher Schuster <cs@livoris.de>"
+  ],
+  "description": "A game for AI/path finding experiments",
+  "license": "ISC",
+  "ignore": [
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "crafty": "~0.6.2",
+    "jquery": "~2.1.1"
+  }
+}

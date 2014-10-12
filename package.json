@@ -3,9 +3,6 @@
   "version": "0.0.1",
   "description": "A game for AI/path finding experiments",
   "main": "index.js",
-  "dependencies": {
-    "crafty": "^0.1.1"
-  },
   "devDependencies": {
     "coffeelint": "^1.6.0",
     "grunt": "^0.4.5",
@@ -17,5 +14,13 @@
     "load-grunt-tasks": "^0.6.0"
   },
   "author": "Christopher Schuster <cs@livoris.net>",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/levjj/aipf.git"
+  },
+  "bugs": {
+    "url": "https://github.com/levjj/aipf/issues"
+  },
+  "homepage": "https://github.com/levjj/aipf"
 }
