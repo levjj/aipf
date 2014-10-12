@@ -28,4 +28,4 @@ Running
 
     grunt serve
 
-And then open your browser at [http://localhost:9001].
+And then open your browser at http://localhost:9001
