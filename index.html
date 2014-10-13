@@ -3,12 +3,17 @@
 <head>
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/crafty/dist/crafty.js"></script>
-  <script src="build/game.js"></script>
   <script src="build/components.js"></script>
+  <script src="build/game.js"></script>
+  <script src="build/victory.js"></script>
 </head>
 <body>
   <script>
-    $(function() { Game.start(); });
+    $(function() {
+      Crafty.init(Game.width(), Game.height());
+      Crafty.background('rgb(249, 223, 125)');
+      Crafty.scene('Game');
+    });
   </script>
 </body>
 </html>

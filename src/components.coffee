@@ -31,14 +31,25 @@ Crafty.c 'PlayerCharacter',
   init: ->
     @requires 'Actor, Fourway, Color, Collision'
       .fourway 2
-      .stopOnSolids()
+      .onHit 'Solid', @stopMovement
+      .onHit 'Village', @visitVillage
     @color 'rgb(20,75,40)'
-
-  stopOnSolids: ->
-    @onHit 'Solid', @stopMovement
 
   stopMovement: (collision) ->
     @_speed = 0
     if @_movement
       @x -= @_movement.x
       @y -= @_movement.y
+
+  visitVillage: (collision) ->
+    villlage = collision[0].obj
+    villlage.collect()
+
+Crafty.c 'Village',
+  init: ->
+    @requires 'Actor, Color'
+    @color 'rgb(170,125,40)'
+
+  collect: ->
+    @destroy()
+    Crafty.trigger 'VillagesVisited', this

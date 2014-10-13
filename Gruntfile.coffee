@@ -32,7 +32,7 @@ module.exports = (grunt) ->
       livereload:
         options:
           livereload: 35729
-        files: ['build/**/*.js']
+        files: ['build/**/*.js', 'index.html']
 
     coffeelint:
       options:
