@@ -11,18 +11,7 @@ window.Game =
 
   height: -> @grid.height * @grid.tile.height
 
-  placeTile: (x,y,c) ->
-    Crafty.e '2D, Canvas, Color'
-      .attr
-        x: x * @grid.tile.width
-        y: y * @grid.tile.height
-        w: @grid.tile.width
-        h: @grid.tile.height
-      .color "rgb(20, #{c}, 40)"
-
-  # Initialize and start our game
   start: ->
-    # Start crafty and set a background color so that we can see it's working
     Crafty.init @width(), @height()
     Crafty.background 'rgb(249, 223, 125)'
 
@@ -31,7 +20,8 @@ window.Game =
         at_edge = x is 0 or x is (@grid.width - 1) or
           y is 0 or y is (@grid.height - 1)
         if at_edge
-          @placeTile x, y, 125
+          Crafty.e('Tree').at x, y
         else if Math.random() < 0.1
-          @placeTile x, y, 185
+          Crafty.e('Bush').at x, y
 
+    Crafty.e('PlayerCharacter').at 1, 1
