@@ -3,16 +3,22 @@
 <head>
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/crafty/dist/crafty.js"></script>
+  <script src="build/heap.js"></script>
+  <script src="build/pf.js"></script>
   <script src="build/components.js"></script>
+  <script src="build/loading.js"></script>
   <script src="build/game.js"></script>
   <script src="build/victory.js"></script>
+  <style type="text/css" media="screen">
+    body { background: black; }
+  </style>
 </head>
 <body>
   <script>
     $(function() {
       Crafty.init(Game.width(), Game.height());
-      Crafty.background('rgb(249, 223, 125)');
-      Crafty.scene('Game');
+      Crafty.background('rgb(87,109,20)');
+      Crafty.scene('Loading');
     });
   </script>
 </body>

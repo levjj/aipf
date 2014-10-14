@@ -1,5 +1,4 @@
-window.Game =
-
+Game =
   grid:
     width: 24
     height: 16
@@ -22,6 +21,10 @@ window.Game =
     @player = Crafty.e('PlayerCharacter').at 1, 1
     @occupied[1][1] = true
 
+  initAI: ->
+    @ai = Crafty.e('AICharacter').at @grid.width - 2, @grid.height - 2
+    @occupied[@grid.width - 2][@grid.height - 2] = true
+
   generateObjects: ->
     for x in [0...@grid.width]
       for y in [0...@grid.height]
@@ -31,12 +34,11 @@ window.Game =
         if at_edge
           Crafty.e('Tree').at x, y
           @occupied[x][y] = true
-        else if Math.random() < 0.1
+        else if Math.random() < 0.15
           Crafty.e('Bush').at x, y
           @occupied[x][y] = true
-        else if Math.random() < 0.02 and Crafty('Village').length < 5
+        else if Math.random() < 0.03 and Crafty('Village').length < 5
           Crafty.e('Village').at x, y
-          @occupied[x][y] = true
 
   checkVictory: ->
     if Crafty('Village').length is 0
@@ -45,6 +47,7 @@ window.Game =
   start: (scene) ->
     @initGrid()
     @initPlayer()
+    @initAI()
     @generateObjects()
     scene.bind 'VillagesVisited', @checkVictory
 
@@ -52,3 +55,5 @@ window.Game =
     scene.unbind 'VillagesVisited', @checkVictory
 
 Crafty.scene 'Game', (-> Game.start this), (-> Game.stop this)
+
+window.Game = Game
